@@ -4,6 +4,8 @@
         <span class="addContainer" @click="addTodo">
             <i class="fas fa-plus addBtn"></i>
         </span>
+        <MyModal v-if="showModal" @close="showModal = false">
+        </MyModal>
     </div>
 </template>
 
