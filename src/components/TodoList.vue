@@ -20,8 +20,9 @@ onBeforeMount(() => {
     console.log('mounted in the composition api!')
     if (localStorage.length > 0) {
         for (var i = 0; i < localStorage.length; i++) {
-            const storageValue = localStorage.key(i)
-            todoItems.value.push(storageValue)
+            const storageKey = localStorage.key(i)
+            const itemJson = localStorage.getItem(storageKey);
+            todoItems.value.push(JSON.parse(itemJson));
         }
     }
     console.log(todoItems.value)
