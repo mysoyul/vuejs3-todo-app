@@ -9,9 +9,11 @@
 
 <script setup>
 import { ref, defineEmits } from 'vue'
+import MyModal from './common/MyModal.vue'
 
 const newTodoItem = ref("")
 const emit = defineEmits(["input:todo","add:todo"])
+const showModal = ref(false)
 
 const handleInput = (event) => {
     const todoText = event.target.value
@@ -20,9 +22,13 @@ const handleInput = (event) => {
     newTodoItem.value = todoText
 }
 const addTodo = () => {
-    const todoItem = newTodoItem.value
-    emit("add:todo", todoItem)
-    clearInput()
+    if (newTodoItem.value !== "") {
+        const todoItem = newTodoItem.value
+        emit("add:todo", todoItem)
+        clearInput()
+    }else {
+        showModal.value = !showModal.value
+    }
 }
 
 const clearInput = () => {
@@ -64,4 +70,8 @@ i,span {
     color: white;
     vertical-align: middle;
 }
+.closeModalBtn {
+    color: #42b983;
+}
+
 </style>
