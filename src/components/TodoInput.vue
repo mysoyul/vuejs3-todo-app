@@ -35,6 +35,10 @@ input:focus {
     outline: none;
 }
 
+i,span {
+  cursor: pointer;
+}
+
 .inputBox {
     background: white;
     height: 50px;

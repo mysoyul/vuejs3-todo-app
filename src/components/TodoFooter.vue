@@ -7,7 +7,7 @@
 <script>
 export default {
     emits:["clear:todo"],
-    
+
     setup(props, {emit}) {
         const clearTodo = () => {
             emit("clear:todo")
@@ -20,6 +20,9 @@ export default {
 </script>
 
 <style scoped>
+span {
+  cursor: pointer;
+}
 .clearAllContainer {
     width: 8.5rem;
     height: 50px;

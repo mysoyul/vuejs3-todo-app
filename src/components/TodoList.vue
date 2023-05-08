@@ -32,6 +32,10 @@ const toggleComplete = (todoItem, index) => {
 </script>
 
 <style scoped>
+i,span {
+  cursor: pointer;
+}
+
 ul {
     list-style-type: none;
     padding-left: 0px;
