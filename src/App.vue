@@ -2,7 +2,7 @@
   <div id="app">
     <TodoHeader></TodoHeader>
     <TodoInput @add:todo="addTodo"></TodoInput>
-    <TodoList :propsdata="todoItems"></TodoList>
+    <TodoList :propsdata="todoItems" ></TodoList>
     <TodoFooter></TodoFooter>
   </div>
 </template>
@@ -46,11 +46,11 @@ export default {
     const removeTodo = (todoItem, index) => {
       const { item } = todoItem
       localStorage.removeItem(item)
-      todoItems.value.splice(index, 1)
+      todoItems.splice(index, 1)
     }
 
     return {
-      todoItems, addTodo
+      todoItems, addTodo, removeTodo
     }
   }
 }
