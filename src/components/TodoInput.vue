@@ -5,6 +5,15 @@
             <i class="fas fa-plus addBtn"></i>
         </span>
         <MyModal v-if="showModal" @close="showModal = false">
+            <template v-slot:header>
+                <h3>
+                    경고!
+                    <i class="closeModalBtn fas fa-times" @click="showModal = false"></i>
+                </h3>
+            </template>
+            <template v-slot:body>
+                <div>아무것도 입력하지 않으셨습니다.</div>
+            </template>
         </MyModal>
     </div>
 </template>
@@ -14,7 +23,7 @@ import { ref, defineEmits } from 'vue'
 import MyModal from './common/MyModal.vue'
 
 const newTodoItem = ref("")
-const emit = defineEmits(["input:todo","add:todo"])
+const emit = defineEmits(["input:todo", "add:todo"])
 const showModal = ref(false)
 
 const handleInput = (event) => {
@@ -28,7 +37,7 @@ const addTodo = () => {
         const todoItem = newTodoItem.value
         emit("add:todo", todoItem)
         clearInput()
-    }else {
+    } else {
         showModal.value = !showModal.value
     }
 }
@@ -43,8 +52,9 @@ input:focus {
     outline: none;
 }
 
-i,span {
-  cursor: pointer;
+i,
+span {
+    cursor: pointer;
 }
 
 .inputBox {
@@ -72,8 +82,8 @@ i,span {
     color: white;
     vertical-align: middle;
 }
+
 .closeModalBtn {
     color: #42b983;
 }
-
 </style>

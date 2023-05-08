@@ -74,7 +74,7 @@
    * You can easily play with the modal transition by editing
    * these styles.
    */
-  /* .modal-enter {
+  .modal-enter {
     opacity: 0;
   }
   .modal-leave-active {
@@ -84,9 +84,9 @@
   .modal-leave-active .modal-container {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
-  } */
+  }
 
-.modal-enter-from {
+/* .modal-enter-from {
   opacity: 0;
 }
 
@@ -98,5 +98,5 @@
 .modal-leave-to .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
-}
+} */
   </style>
