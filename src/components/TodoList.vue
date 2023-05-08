@@ -18,18 +18,14 @@ import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps(['propsdata'])
 
-const emit = defineEmits(["remove:todo"])
+const emit = defineEmits(["remove:todo","toggle:todo"])
 
 const removeTodo = (todoItem, index) => {
     emit("remove:todo", todoItem, index)
 }
 
 const toggleComplete = (todoItem) => {
-    const { item, completed } = todoItem;
-    todoItem.completed = !completed;
 
-    localStorage.removeItem(item);
-    localStorage.setItem(item, JSON.stringify(todoItem));
 }
 
 
