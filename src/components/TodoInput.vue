@@ -1,13 +1,44 @@
 <template>
     <div>
-
+        <input type="text" :value="newTodoItem">
+        <button>추가</button>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
+const newTodoItem = ref("")
 
 </script>
 
 <style scoped>
+input:focus {
+    outline: none;
+}
 
-</style>
+.inputBox {
+    background: white;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 5px;
+}
+
+.inputBox input {
+    border-style: none;
+    font-size: 0.9rem;
+    width: 80%;
+}
+
+.addContainer {
+    float: right;
+    background: linear-gradient(to right, #6478FB, #8763FB);
+    display: block;
+    width: 3rem;
+    border-radius: 0 5px 5px 0;
+}
+
+.addBtn {
+    color: white;
+    vertical-align: middle;
+}</style>
