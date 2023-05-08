@@ -2,7 +2,8 @@
   <div id="app">
     <TodoHeader></TodoHeader>
     <TodoInput @add:todo="addTodo"></TodoInput>
-    <TodoList :propsdata="todoItems" ></TodoList>
+    <TodoList :propsdata="todoItems" 
+              @remove:todo="removeTodo" ></TodoList>
     <TodoFooter></TodoFooter>
   </div>
 </template>
