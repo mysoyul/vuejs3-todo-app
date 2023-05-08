@@ -1,14 +1,16 @@
 <template>
-    <div>
+    <div class="inputBox">
         <input type="text" :value="newTodoItem">
         <button>추가</button>
     </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineEmits } from 'vue';
 
 const newTodoItem = ref("")
+const emit = defineEmits(["input:todo"])
+
 
 </script>
 
