@@ -2,7 +2,7 @@
   <div id="app">
     <TodoHeader></TodoHeader>
     <TodoInput></TodoInput>
-    <TodoList></TodoList>
+    <TodoList :propsdata="todoItems"></TodoList>
     <TodoFooter></TodoFooter>
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
         for (var i = 0; i < localStorage.length; i++) {
           const storageKey = localStorage.key(i)
           const itemJson = localStorage.getItem(storageKey);
-          todoItems.value.push(JSON.parse(itemJson));
+          todoItems.push(JSON.parse(itemJson));
         }
       }
     })//onBeforeMount
