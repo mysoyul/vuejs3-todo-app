@@ -1,9 +1,9 @@
 <template>
     <div>
         <ul>
-            <li v-for="(item, idx) in todoItems" :key="idx">
-                {{ item }}
-                <span class="removeBtn" @click="removeTodo(item, idx)">
+            <li v-for="(todo, idx) in todoItems" :key="idx">
+                {{ todo.item }}
+                <span class="removeBtn" @click="removeTodo(todo, idx)">
                     <i class="fas fa-trash-alt"></i>
                 </span>
             </li>
@@ -29,7 +29,8 @@ onBeforeMount(() => {
 })
 
 const removeTodo = (todoItem, index) => {
-    localStorage.removeItem(todoItem)
+    const { item } = todoItem
+    localStorage.removeItem(item)
     todoItems.value.splice(index, 1)
 }
 
