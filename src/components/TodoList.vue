@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ul>
+        <transition-group name="list" tag="ul">
             <li v-for="(todo, idx) in props.propsdata" :key="idx">
                 <i class="fas fa-check checkBtn" :class="{ checkBtnCompleted: todo.completed }"
                     @click="toggleComplete(todo, idx)"></i>
@@ -9,7 +9,7 @@
                     <i class="fas fa-trash-alt"></i>
                 </span>
             </li>
-        </ul>
+        </transition-group>
     </div>
 </template>
 
@@ -18,7 +18,7 @@ import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps(['propsdata'])
 
-const emit = defineEmits(["remove:todo","toggle:todo"])
+const emit = defineEmits(["remove:todo", "toggle:todo"])
 
 const removeTodo = (todoItem, index) => {
     emit("remove:todo", todoItem, index)
@@ -32,8 +32,9 @@ const toggleComplete = (todoItem, index) => {
 </script>
 
 <style scoped>
-i,span {
-  cursor: pointer;
+i,
+span {
+    cursor: pointer;
 }
 
 ul {
@@ -73,4 +74,14 @@ li {
     text-decoration: line-through;
     color: #b3adad;
 }
-</style>
+
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.5s ease;
+}
+
+.list-enter,
+.list-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+}</style>
