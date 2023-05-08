@@ -17,18 +17,7 @@
 import { ref, onBeforeMount } from 'vue'
 const todoItems = ref([])
 
-//life cycle method
-onBeforeMount(() => {
-    console.log('mounted in the composition api!')
-    if (localStorage.length > 0) {
-        for (var i = 0; i < localStorage.length; i++) {
-            const storageKey = localStorage.key(i)
-            const itemJson = localStorage.getItem(storageKey);
-            todoItems.value.push(JSON.parse(itemJson));
-        }
-    }
-    console.log(todoItems.value)
-})
+
 
 const removeTodo = (todoItem, index) => {
     const { item } = todoItem
