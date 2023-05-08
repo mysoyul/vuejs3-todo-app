@@ -3,7 +3,7 @@
         <ul>
             <li v-for="(todo, idx) in props.propsdata" :key="idx">
                 <i class="fas fa-check checkBtn" :class="{ checkBtnCompleted: todo.completed }"
-                    @click="toggleComplete(todo)"></i>
+                    @click="toggleComplete(todo, idx)"></i>
                 {{ todo.item }}
                 <span class="removeBtn" @click="removeTodo(todo, idx)">
                     <i class="fas fa-trash-alt"></i>
@@ -24,8 +24,8 @@ const removeTodo = (todoItem, index) => {
     emit("remove:todo", todoItem, index)
 }
 
-const toggleComplete = (todoItem) => {
-
+const toggleComplete = (todoItem, index) => {
+    emit("toggle:todo", todoItem, index)
 }
 
 

@@ -2,7 +2,9 @@
   <div id="app">
     <TodoHeader></TodoHeader>
     <TodoInput @add:todo="addTodo"></TodoInput>
-    <TodoList :propsdata="todoItems" @remove:todo="removeTodo"></TodoList>
+    <TodoList :propsdata="todoItems" 
+          @remove:todo="removeTodo" 
+          @toggle:todo="toggleTodo"></TodoList>
     <TodoFooter></TodoFooter>
   </div>
 </template>
@@ -51,10 +53,10 @@ export default {
 
     const toggleTodo = (todoItem, index) => {
       const { item, completed } = todoItem;
-      todoItem.completed = !completed;
+      todoItems[index].completed = !completed;
 
       localStorage.removeItem(item);
-      localStorage.setItem(item, JSON.stringify(todoItem));
+      localStorage.setItem(item, JSON.stringify(todoItems[index]));
     }
 
     return {
