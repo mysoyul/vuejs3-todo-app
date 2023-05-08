@@ -43,6 +43,11 @@ export default {
       todoItems.push(todoItemObj);
     };//addTodo
 
+    const removeTodo = (todoItem, index) => {
+      const { item } = todoItem
+      localStorage.removeItem(item)
+      todoItems.value.splice(index, 1)
+    }
 
     return {
       todoItems, addTodo
