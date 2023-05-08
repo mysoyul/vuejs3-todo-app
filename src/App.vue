@@ -20,6 +20,11 @@ export default {
     TodoList,
     TodoInput,
     TodoFooter
+  },
+  setup() {
+    return {
+      
+    }
   }
 }
 
