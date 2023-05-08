@@ -3,7 +3,7 @@
         <ul>
             <li v-for="(item, idx) in todoItems" :key="idx">
                 {{ item }}
-                <span class="removeBtn" @click="removeTodo(item, index)">
+                <span class="removeBtn" @click="removeTodo(item, idx)">
                     <i class="fas fa-trash-alt"></i>
                 </span>
             </li>
