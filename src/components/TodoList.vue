@@ -2,6 +2,8 @@
     <div>
         <ul>
             <li v-for="(todo, idx) in todoItems" :key="idx">
+                <i class="fas fa-check checkBtn" :class="{ checkBtnCompleted: todo.completed }"
+                    @click="toggleComplete(todo)"></i>
                 {{ todo.item }}
                 <span class="removeBtn" @click="removeTodo(todo, idx)">
                     <i class="fas fa-trash-alt"></i>
@@ -36,7 +38,7 @@ const removeTodo = (todoItem, index) => {
 
 const toggleComplete = (todoItem) => {
     const { item, completed } = todoItem;
-    const updatedTodoItem = {item, completed:!completed}
+    const updatedTodoItem = { item, completed: !completed }
     localStorage.removeItem(item);
     localStorage.setItem(item, JSON.stringify(updatedTodoItem));
 }
