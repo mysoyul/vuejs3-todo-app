@@ -21,8 +21,7 @@ const handleInput = (event) => {
 }
 const addTodo = () => {
     const todoItem = newTodoItem.value
-    const todoItemObj = {completed: false, item:todoItem}
-    localStorage.setItem(todoItem, JSON.stringify(todoItemObj))
+    emit("add:todo", todoItem)
     clearInput()
 }
 
