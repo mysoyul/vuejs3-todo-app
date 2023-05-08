@@ -24,7 +24,7 @@ export default {
   },
   setup() {
     const todoItems = reactive([])
-    
+
     //life cycle method
     onBeforeMount(() => {
       console.log('mounted in the composition api!')
@@ -37,8 +37,15 @@ export default {
       }
     })//onBeforeMount
 
+    const addTodo = (todoItemStr) => {
+      const todoItemObj = { completed: false, item: todoItemStr };
+      localStorage.setItem(todoItemStr, JSON.stringify(todoItemObj));
+      todoItems.push(todoItemObj);
+    };//addTodo
+
+
     return {
-      todoItems
+      todoItems, addTodo
     }
   }
 }

@@ -11,7 +11,7 @@
 import { ref, defineEmits } from 'vue'
 
 const newTodoItem = ref("")
-const emit = defineEmits(["input:todo"])
+const emit = defineEmits(["input:todo","add:todo"])
 
 const handleInput = (event) => {
     const todoText = event.target.value
