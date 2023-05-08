@@ -11,7 +11,12 @@ import { ref, defineEmits } from 'vue';
 const newTodoItem = ref("")
 const emit = defineEmits(["input:todo"])
 
-
+const handleInput = (event) => {
+    const todoText = event.target.value
+    if (!todoText) return
+    emit("input:todo", todoText)
+    newTodoItem.value = todoText
+}
 </script>
 
 <style scoped>
@@ -43,4 +48,5 @@ input:focus {
 .addBtn {
     color: white;
     vertical-align: middle;
-}</style>
+}
+</style>
