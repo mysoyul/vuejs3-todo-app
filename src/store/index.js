@@ -28,6 +28,9 @@ export const store = createStore({
         },
     },
     mutations: {
+        setTodoItems(state, items) {
+            state.todoItems = items;
+        },
         addTodo(state, todoItemStr) {
             const todoItemObj = { completed: false, item: todoItemStr };
             localStorage.setItem(todoItemStr, JSON.stringify(todoItemObj));
