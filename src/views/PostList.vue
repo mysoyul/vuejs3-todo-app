@@ -1,7 +1,7 @@
 <template>
     <div>
       <h1>Posts</h1>
-      <div v-if="loading">Loading...</div>
+      <div v-show="loading">Loading...</div>
       <div v-for="post in posts" :key="post.id">
         <router-link :to="{ name: 'post', params: { id: post.id } }">
           [ID: {{ post.id }}] {{ summary(post.text) }}
@@ -13,14 +13,15 @@
 
   <script setup>
   import { useStore } from "vuex"
-  import { ref, onBeforeMount, computed } from "vue"
+  import { ref, computed, onMounted } from 'vue';
   
   const store = useStore()
   
   const loading = ref(false)
   const posts = computed(() => store.state.modulePost.posts)
   
-  onBeforeMount(() => {
+//   onBeforeMount(() => {
+  onMounted(() => {  
     fetchData();
   });
   
