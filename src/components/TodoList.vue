@@ -36,7 +36,6 @@ const toggleComplete = (todoItem) => {
     store.dispatch("toggleTodo", todoItem)
 }
 
-
 </script>
 
 <style scoped>
