@@ -2,7 +2,7 @@
   <div id="app">
     <TodoHeader></TodoHeader>
     <TodoInput @add:todo="addTodo"></TodoInput>
-    <TodoList :propsdata="todoItems" @remove:todo="removeTodo" @toggle:todo="toggleTodo"></TodoList>
+    <TodoList  @remove:todo="removeTodo" @toggle:todo="toggleTodo"></TodoList>
     <TodoFooter @clear:todo="clearTodo"></TodoFooter>
   </div>
 </template>
@@ -24,18 +24,6 @@ export default {
   },
   setup() {
     const todoItems = reactive([])
-
-    //life cycle method
-    onBeforeMount(() => {
-      console.log('mounted in the composition api!')
-      if (localStorage.length > 0) {
-        for (var i = 0; i < localStorage.length; i++) {
-          const storageKey = localStorage.key(i)
-          const itemJson = localStorage.getItem(storageKey);
-          todoItems.push(JSON.parse(itemJson));
-        }
-      }
-    })//onBeforeMount
 
     const addTodo = (todoItemStr) => {
       const todoItemObj = { completed: false, item: todoItemStr };
