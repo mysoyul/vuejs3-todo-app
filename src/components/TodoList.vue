@@ -5,7 +5,7 @@
                 <i class="fas fa-check checkBtn" :class="{ checkBtnCompleted: todo.completed }"
                     @click="toggleComplete(todo, idx)"></i>
                 {{ todo.item }}
-                <span class="removeBtn" @click="removeTodo(todo, idx)">
+                <span class="removeBtn" @click="removeTodo(todo)">
                     <i class="fas fa-trash-alt"></i>
                 </span>
             </li>
@@ -25,8 +25,9 @@ onMounted(() => {
     store.dispatch("loadTodoItems")
 })
 
-const removeTodo = (todoItem, index) => {
-    store.commit("removeTodo", {todoItem, index})
+const removeTodo = (todoItem) => {
+    //store.commit("removeTodo", {todoItem, index})
+    store.dispatch("removeTodo", todoItem)
 }
 
 const toggleComplete = (todoItem, index) => {

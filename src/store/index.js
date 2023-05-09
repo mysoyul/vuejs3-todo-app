@@ -17,7 +17,6 @@ export const store = createStore({
                     commit('setTodoItems', items)
                 })
                 .catch(error => {
-                    console.log(error)
                     if (axios.isAxiosError(error)) {
                         console.error(error?.response?.status +
                             ' : ' + error.message)
@@ -25,7 +24,16 @@ export const store = createStore({
                         console.error(error);
                     }
                 });
-        },
+        }, //loadTodoItems
+        removeTodo({ commit }, payload) {
+            http
+                .delete(`/todos/${payload.id}`)
+                .then(r => r.data)
+                .then(items => {
+                    commit('setTodoItems', items)
+                })
+        }, //removeTodo
+        
     },
     mutations: {
         setTodoItems(state, items) {
