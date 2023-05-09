@@ -14,11 +14,16 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useStore } from "vuex"
 
 const store = useStore()
 const todoItems = computed(() => store.state.todoItems)
+
+onMounted(() => {
+    console.log('onMounted...')
+    store.dispatch("loadTodoItems")
+})
 
 const removeTodo = (todoItem, index) => {
     store.commit("removeTodo", {todoItem, index})
